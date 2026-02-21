@@ -18,6 +18,7 @@ interface ContactTexts {
   errorRequired: string;
   errorEmail: string;
   errorMinLength: string;
+  errorServer: string;
 }
 
 const TEXTS: { pt: ContactTexts; en: ContactTexts } = {
@@ -36,6 +37,7 @@ const TEXTS: { pt: ContactTexts; en: ContactTexts } = {
     errorRequired: 'Campo obrigatório',
     errorEmail: 'Email inválido',
     errorMinLength: 'Mínimo de 10 caracteres',
+    errorServer: 'Erro ao enviar. Tente novamente.',
   },
   en: {
     title: 'Contact',
@@ -52,6 +54,7 @@ const TEXTS: { pt: ContactTexts; en: ContactTexts } = {
     errorRequired: 'Required field',
     errorEmail: 'Invalid email',
     errorMinLength: 'Minimum 10 characters',
+    errorServer: 'Failed to send. Please try again.',
   },
 };
 
@@ -69,6 +72,7 @@ export class Contact {
   readonly texts = computed(() => this.i18n.t(TEXTS));
   readonly isSending = signal(false);
   readonly isSent = signal(false);
+  readonly hasError = signal(false);
 
   readonly form = this.fb.nonNullable.group({
     name: ['', Validators.required],
@@ -83,10 +87,25 @@ export class Contact {
     }
 
     this.isSending.set(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    this.isSending.set(false);
-    this.isSent.set(true);
-    this.form.reset();
-    setTimeout(() => this.isSent.set(false), 4000);
+    this.hasError.set(false);
+
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.form.getRawValue()),
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+
+      this.isSent.set(true);
+      this.form.reset();
+      setTimeout(() => this.isSent.set(false), 5000);
+    } catch {
+      this.hasError.set(true);
+      setTimeout(() => this.hasError.set(false), 5000);
+    } finally {
+      this.isSending.set(false);
+    }
   }
 }

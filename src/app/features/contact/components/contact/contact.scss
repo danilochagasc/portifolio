@@ -93,6 +93,19 @@
   animation: fadeIn 0.3s ease;
 }
 
+.contact__error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--error);
+  border-radius: var(--radius-sm);
+  color: var(--error);
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
