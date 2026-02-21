@@ -1,0 +1,43 @@
+<section id="about" class="section about">
+  <div class="container">
+    <div appScrollReveal>
+      <h2 class="section-title">{{ texts().title }}</h2>
+      <p class="section-subtitle">{{ texts().subtitle }}</p>
+    </div>
+
+    <div class="about__summary" appScrollReveal [delay]="100">
+      <p>{{ texts().summary }}</p>
+    </div>
+
+    <h3 class="about__exp-title" appScrollReveal [delay]="200">{{ texts().experienceTitle }}</h3>
+
+    <div class="timeline">
+      @for (exp of experiences(); track exp.company; let i = $index) {
+        <div class="timeline__item glass-card" appScrollReveal [delay]="i * 150 + 300">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <div>
+                <h4 class="timeline__company">{{ exp.company }}</h4>
+                <p class="timeline__role">{{ exp.role }}</p>
+              </div>
+              <span class="timeline__period">{{ exp.period }}</span>
+            </div>
+
+            <div class="timeline__techs">
+              @for (tech of exp.technologies; track tech) {
+                <span class="tech-badge">{{ tech }}</span>
+              }
+            </div>
+
+            <ul class="timeline__responsibilities">
+              @for (resp of exp.responsibilities; track resp) {
+                <li>{{ resp }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

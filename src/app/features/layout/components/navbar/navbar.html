@@ -1,0 +1,92 @@
+<nav class="navbar" [class.scrolled]="true">
+  <div class="navbar__container container">
+    <a class="navbar__logo" (click)="scrollTo('hero')" tabindex="0" role="button">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-name">DC</span>
+      <span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <ul class="navbar__links">
+      @for (link of navLinks(); track link.id) {
+        <li>
+          <a
+            class="navbar__link"
+            [class.active]="activeSection() === link.id"
+            (click)="scrollTo(link.id)"
+            tabindex="0"
+            role="button"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="navbar__actions">
+      <button class="navbar__action-btn lang-toggle" (click)="toggleLang()" [attr.aria-label]="currentLang() === 'pt' ? 'Switch to English' : 'Mudar para Português'">
+        @if (currentLang() === 'pt') {
+          <span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="16"><rect width="512" height="512" fill="#009739"/><polygon points="256,64 488,256 256,448 24,256" fill="#FEDD00"/><circle cx="256" cy="256" r="96" fill="#012169"/><circle cx="256" cy="256" r="80" fill="#002776"/></svg></span>
+          <span class="lang-label">PT</span>
+        } @else {
+          <span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 356" width="22" height="16"><rect width="512" height="356" fill="#B22234"/><rect y="27" width="512" height="27" fill="#fff"/><rect y="82" width="512" height="27" fill="#fff"/><rect y="137" width="512" height="27" fill="#fff"/><rect y="192" width="512" height="27" fill="#fff"/><rect y="247" width="512" height="27" fill="#fff"/><rect y="302" width="512" height="27" fill="#fff"/><rect width="205" height="192" fill="#3C3B6E"/></svg></span>
+          <span class="lang-label">EN</span>
+        }
+      </button>
+
+      <button class="navbar__action-btn" (click)="toggleTheme()" [attr.aria-label]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
+        @if (isDark()) {
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        } @else {
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        }
+      </button>
+
+      <a class="btn-primary navbar__cv-btn" [href]="cvLink()" download>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        {{ texts().downloadCv }}
+      </a>
+
+      <button class="navbar__hamburger" (click)="toggleMobileMenu()" [attr.aria-label]="mobileMenuOpen() ? 'Close menu' : 'Open menu'" [class.open]="mobileMenuOpen()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+@if (mobileMenuOpen()) {
+  <div class="mobile-overlay" (click)="closeMobileMenu()"></div>
+  <div class="mobile-menu">
+    <ul class="mobile-menu__links">
+      @for (link of navLinks(); track link.id) {
+        <li>
+          <a class="mobile-menu__link" [class.active]="activeSection() === link.id" (click)="scrollTo(link.id)" tabindex="0" role="button">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+    <div class="mobile-menu__actions">
+      <button class="navbar__action-btn lang-toggle" (click)="toggleLang()">
+        @if (currentLang() === 'pt') {
+          <span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="16"><rect width="512" height="512" fill="#009739"/><polygon points="256,64 488,256 256,448 24,256" fill="#FEDD00"/><circle cx="256" cy="256" r="96" fill="#012169"/><circle cx="256" cy="256" r="80" fill="#002776"/></svg></span>
+          <span class="lang-label">PT</span>
+        } @else {
+          <span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 356" width="22" height="16"><rect width="512" height="356" fill="#B22234"/><rect y="27" width="512" height="27" fill="#fff"/><rect y="82" width="512" height="27" fill="#fff"/><rect y="137" width="512" height="27" fill="#fff"/><rect y="192" width="512" height="27" fill="#fff"/><rect y="247" width="512" height="27" fill="#fff"/><rect y="302" width="512" height="27" fill="#fff"/><rect width="205" height="192" fill="#3C3B6E"/></svg></span>
+          <span class="lang-label">EN</span>
+        }
+      </button>
+      <button class="navbar__action-btn" (click)="toggleTheme()">
+        @if (isDark()) {
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        } @else {
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        }
+      </button>
+      <a class="btn-primary" [href]="cvLink()" download style="width: 100%; justify-content: center;">
+        {{ texts().downloadCv }}
+      </a>
+    </div>
+  </div>
+}
