@@ -3,8 +3,7 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// TODO: Trocar para 'contato@danilocc.com.br' quando o domínio estiver verificado
-const FROM_EMAIL = 'onboarding@resend.dev';
+const FROM_EMAIL = 'contato@danilocc.com.br';
 const TO_EMAIL = 'danilo.chagasclem@gmail.com';
 
 function buildHtml(name: string, email: string, message: string): string {
