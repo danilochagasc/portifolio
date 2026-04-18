@@ -48,7 +48,7 @@ export class Navbar {
 
   readonly navLinks = computed(() => [
     { id: 'about', label: this.texts().about },
-    // { id: 'projects', label: this.texts().projects }, // TODO: uncomment when projects section is ready
+    { id: 'projects', label: this.texts().projects },
     { id: 'contact', label: this.texts().contact },
   ]);
 
