@@ -1,0 +1,152 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.5in,nofoot]{geometry}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{needspace}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    citecolor=black
+}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{*1}{*1}
+
+\newcommand{\entry}[4]{
+  \noindent\textbf{#1} \hfill #2 \\
+  \noindent\textit{#3} \hfill \textit{#4} \\
+  \vspace{2pt}
+}
+
+\newcommand{\project}[2]{
+  \noindent\textbf{#1} \hfill #2 \\
+  \vspace{2pt}
+}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{\Large Danilo Chagas Clemente}
+
+\vspace{0.4em}
+
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+\raggedleft
+
+Lavras - MG, Brasil
+
+{\color{blue}} \href{tel:+5535999840288}{\faPhone \space (35) 99984-0288}
+{\color{blue}} \href{mailto:danilo.chagasclem@gmail.com}{\faEnvelope \space danilo.chagasclem@gmail.com}
+
+\vspace{0.2em}
+ \quad
+{\color{blue}} \href{https://github.com/danilochagasc}{\faGithub \space GitHub} \quad
+{\color{blue}} \href{https://www.linkedin.com/in/danilo-clemente-94880a232/}{\faLinkedin \space LinkedIn} \\
+\end{minipage}
+
+\vspace{1em}
+
+\noindent\textbf{\Large Engenheiro de Software}
+\vspace{0.5em}
+
+\section*{Resumo Profissional}
+
+\vspace{0.6em}
+
+Engenheiro de Software Backend com experiência em sistemas de alta escala, processando milhões de transações diárias. Bacharel em Ciência da Computação pela UFLA e mestrando na mesma instituição. Domínio em Java, Kotlin (Spring Boot), TypeScript (Angular) e Python, com vivência em arquiteturas de microsserviços, mensageria (Kafka, SQS), bancos SQL/NoSQL e práticas de observabilidade. Forte capacidade analítica, comunicação clara e foco em soluções robustas e escaláveis.
+
+\vspace{0.6em}
+
+\section*{Experiência Profissional}
+
+\vspace{0.6em}
+
+\entry{iFood}{\faCalendar \space Jan/2026 -- Atual}{Engenheiro de Software Backend}{\faMapMarker \space Remoto}
+\space
+\vspace{-1.6em}
+\begin{itemize}
+\setlength\itemsep{0em}
+\item Desenvolvo e mantenho microsserviços em Kotlin e Spring Boot na plataforma de pagamentos, responsável por serviços que processam mais de 6 milhões de transações por dia.
+\item Integrei as plataformas iFood e Uber, contribuindo para a interoperabilidade entre sistemas e expansão de funcionalidades para milhões de usuários.
+\item Implemento e mantenho serviços financeiros, incluindo meios de pagamento, conciliação e integrações com adquirentes.
+\item Desenvolvo testes unitários e de integração com JUnit e Kotest, garantindo qualidade e confiabilidade em ambientes de alta disponibilidade.
+\item Monitoro e resolvo incidentes em produção com Datadog, analisando métricas, logs e traces para manter SLAs de disponibilidade.
+\item Projeto soluções com comunicação assíncrona (Kafka, SQS) e arquiteturas distribuídas, aplicando arquitetura hexagonal, DDD e CQRS.
+\item Gerencio containerização com Docker e orquestração com Kubernetes em ambiente AWS.
+\item Executo deploys com estratégias de canary release, reduzindo riscos e garantindo rollback seguro em produção.
+\end{itemize}
+
+\entry{iFood}{\faCalendar \space Fev/2025 -- Dez/2025}{Estagiário de Engenharia de Software}{\faMapMarker \space Remoto}
+\space
+\vspace{-1.6em}
+\begin{itemize}
+\setlength\itemsep{0em}
+\item Desenvolvi e mantive APIs backend em Kotlin e Spring Boot em sistemas de pagamentos de alta escala.
+\item Automatizei a retokenização de cartões com falha via script Python executado por cron job, aumentando a taxa de recuperação de cartões e eficiência operacional.
+\item Configurei e dei suporte a meios de pagamento e integrações com adquirentes.
+\item Implementei testes automatizados e apoiei o monitoramento de serviços em produção com Datadog.
+\item Atuei com comunicação assíncrona (Kafka) e sistemas distribuídos em arquitetura de microsserviços.
+\end{itemize}
+
+\entry{Emakers Jr}{\faCalendar \space Jun/2023 -- Abr/2025}{Desenvolvedor Backend}{\faMapMarker \space Lavras - MG}
+\space
+\vspace{-1.6em}
+\begin{itemize}
+\setlength\itemsep{0em}
+\item Desenvolvi e mantive o backend do sistema Redação Inteligente, plataforma de gestão de cursos e correção de redações com milhares de usuários ativos.
+\item Migrei a integração de pagamentos de PagBank para Mercado Pago, incluindo suporte a Pix, aumentando a confiabilidade e modernizando o sistema de cobranças.
+\item Conduzi a evolução da arquitetura backend, migrando de AdonisJS para Java com Spring Boot e de MySQL para PostgreSQL.
+\item Desenvolvi soluções internas para plataformização de processos de gestão de pessoas e recrutamento, otimizando a eficiência operacional da organização.
+\item Criei materiais técnicos e treinamentos (documentação em Markdown e cursos em vídeo) para capacitação interna em tecnologias backend.
+\end{itemize}
+
+\Needspace{14\baselineskip}
+\entry{Nexos Digital}{\faCalendar \space Out/2024 -- Jan/2025}{Desenvolvedor Fullstack (Estágio)}{\faMapMarker \space Remoto}
+\space
+\vspace{-1.6em}
+\begin{itemize}
+\setlength\itemsep{0em}
+\item Desenvolvi funcionalidades fullstack com Java (Spring Boot) e Angular (TypeScript) na plataforma Mercap Solutions para distribuição de produtos de renda fixa.
+\item Implementei automação de mailing com atualizações de mercado, aumentando o engajamento de usuários da plataforma.
+\item Desenvolvi módulos para gestão de dados e disponibilização de vídeos institucionais de ofertas.
+\item Criei funcionalidades para geração e download de planilhas automatizadas, otimizando o processo de cadastro e gestão de ofertas.
+\end{itemize}
+
+\section*{Educação}
+\vspace{0.6em}
+
+\entry{Universidade Federal de Lavras (UFLA)}{\faCalendar \space 2026 -- Atual}{Mestrado em Ciência da Computação}{\faMapMarker \space Lavras - MG}
+
+\entry{Universidade Federal de Lavras (UFLA)}{\faCalendar \space 2022 -- 2025}{Bacharelado em Ciência da Computação}{\faMapMarker \space Lavras - MG}
+
+\entry{Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG)}{\faCalendar \space 2019 -- 2021}{Técnico em Informática}{\faMapMarker \space Varginha - MG}
+
+\section*{Habilidades Técnicas}
+\vspace{0.6em}
+\begin{itemize}
+\setlength\itemsep{0em}
+\item \textbf{Linguagens:} Java, Kotlin, Python, TypeScript, C/C++.
+\item \textbf{Frameworks:} Spring Boot, Angular, React.
+\item \textbf{Arquitetura:} Microsserviços, Arquitetura Hexagonal, DDD, CQRS, REST APIs, sistemas distribuídos.
+\item \textbf{Mensageria:} Apache Kafka, AWS SQS/SNS.
+\item \textbf{Banco de Dados:} PostgreSQL, MySQL, Redis, bancos NoSQL.
+\item \textbf{Testes:} JUnit, Mockito, Kotest, testes unitários e de integração.
+\item \textbf{DevOps e Cloud:} Docker, Kubernetes, AWS, CI/CD, canary release, Linux.
+\item \textbf{Observabilidade:} Datadog, Grafana, Prometheus, análise de logs, métricas e traces.
+\item \textbf{Ferramentas:} Git, GitHub, GitLab, IntelliJ IDEA.
+\item \textbf{Processamento de Dados:} Pandas, Apache Spark.
+\item \textbf{Metodologias:} Scrum, Kanban.
+\item \textbf{Idiomas:} Português (nativo), Inglês (avançado).
+\end{itemize}
+
+
+\end{document}

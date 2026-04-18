@@ -43,7 +43,7 @@ export class Navbar {
 
   readonly texts = computed(() => this.i18n.t(TEXTS));
   readonly cvLink = computed(() =>
-    this.currentLang() === 'pt' ? 'cv/cv-pt.pdf' : 'cv/cv-en.pdf'
+    this.currentLang() === 'pt' ? 'cv/cv-pt/cv-pt.pdf' : 'cv/cv-en/cv-en.pdf'
   );
 
   readonly navLinks = computed(() => [
