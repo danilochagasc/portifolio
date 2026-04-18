@@ -36,6 +36,8 @@
       height: 64px;
       width: auto;
       object-fit: contain;
+      transform: scale(3);
+      transform-origin: left center;
     }
   }
 

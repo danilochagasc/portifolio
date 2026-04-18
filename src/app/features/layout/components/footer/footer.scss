@@ -28,10 +28,13 @@
       width: auto;
       object-fit: contain;
       filter: grayscale(100%) opacity(0.7);
-      transition: filter var(--transition-fast);
+      transform: scale(2.5);
+      transform-origin: center center;
+      transition: filter var(--transition-fast), transform var(--transition-fast);
 
       &:hover {
         filter: grayscale(0%) opacity(1);
+        transform: scale(2.6);
       }
     }
   }
