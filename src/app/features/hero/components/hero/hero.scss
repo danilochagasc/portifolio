@@ -68,10 +68,18 @@
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 16px;
+    color: var(--accent-primary);
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    isolation: isolate;
+
+    @media (forced-colors: active), (prefers-contrast: more) {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      color: var(--accent-primary);
+    }
   }
 
   &__role {

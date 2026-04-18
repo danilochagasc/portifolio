@@ -23,7 +23,16 @@
   --section-padding: 100px;
 }
 
+/* Hack required by Samsung Internet to disable Forced Dark Mode inversion */
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme: dark; }
+}
+@media (prefers-color-scheme: light) {
+  :root { color-scheme: light; }
+}
+
 [data-theme='dark'] {
+  color-scheme: dark;
   --bg-primary: #0a0e17;
   --bg-secondary: #111827;
   --bg-tertiary: #1a2332;
@@ -51,6 +60,7 @@
 }
 
 [data-theme='light'] {
+  color-scheme: light;
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
   --bg-tertiary: #f1f5f9;
@@ -86,7 +96,6 @@
 }
 
 html {
-  color-scheme: light dark;
   scroll-behavior: smooth;
   scroll-padding-top: var(--navbar-height);
   font-size: 16px;
@@ -183,10 +192,18 @@ input, textarea {
   font-size: clamp(2rem, 5vw, 2.75rem);
   font-weight: 800;
   margin-bottom: 16px;
+  color: var(--accent-primary);
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  isolation: isolate;
+
+  @media (forced-colors: active), (prefers-contrast: more) {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--accent-primary);
+  }
 }
 
 .section-subtitle {
