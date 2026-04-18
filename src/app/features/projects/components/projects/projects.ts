@@ -27,8 +27,8 @@ const TEXTS: { pt: ProjectsTexts; en: ProjectsTexts } = {
     projects: [
       {
         name: 'E-commerce Microservices (TCC)',
-        description: 'Backend de um E-commerce completo arquitetado em microsserviços. Desenvolvido com Kotlin, Spring Boot, WebFlux, PostgreSQL e Redis, aplicando os conceitos de Domain-Driven Design (DDD) e Arquitetura Hexagonal.',
-        technologies: ['Kotlin', 'Spring Boot', 'Microsserviços', 'PostgreSQL', 'Docker'],
+        description: 'Backend de um E-commerce distribuído construído para pesquisa e validação arquitetural em meu TCC. O sistema foi totalmente modelado utilizando Domain-Driven Design (DDD) e Arquitetura Hexagonal, com forte foco em baixo acoplamento e alta resiliência entre os domínios.',
+        technologies: ['Kotlin', 'Spring Boot', 'Microsserviços', 'PostgreSQL', 'Redis', 'Docker', 'AWS S3'],
         projectUrl: '',
         githubUrl: 'https://github.com/danilochagasc/ecommerce-tcc',
       },
@@ -42,8 +42,8 @@ const TEXTS: { pt: ProjectsTexts; en: ProjectsTexts } = {
     projects: [
       {
         name: 'E-commerce Microservices (TCC)',
-        description: 'Complete E-commerce backend built with a microservices architecture. Developed using Kotlin, Spring Boot, WebFlux, PostgreSQL, and Redis, applying Domain-Driven Design (DDD) and Hexagonal Architecture principles.',
-        technologies: ['Kotlin', 'Spring Boot', 'Microservices', 'PostgreSQL', 'Docker'],
+        description: 'Distributed E-commerce backend built for architectural research and validation for my final degree project. The system was fully modeled using Domain-Driven Design (DDD) and Hexagonal Architecture principles, heavily focusing on loose coupling and high domain resilience.',
+        technologies: ['Kotlin', 'Spring Boot', 'Microservices', 'PostgreSQL', 'Redis', 'Docker', 'AWS S3'],
         projectUrl: '',
         githubUrl: 'https://github.com/danilochagasc/ecommerce-tcc',
       },
