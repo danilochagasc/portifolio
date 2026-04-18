@@ -32,15 +32,10 @@
       opacity: 0.8;
     }
 
-    .logo-bracket {
-      color: var(--accent-primary);
-    }
-
-    .logo-name {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .brand-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
     }
   }
 

@@ -24,7 +24,7 @@ interface ContactTexts {
 const TEXTS: { pt: ContactTexts; en: ContactTexts } = {
   pt: {
     title: 'Contato',
-    subtitle: 'Tem um projeto em mente? Vamos conversar.',
+    subtitle: 'Vamos conversar! Fique à vontade para me mandar uma mensagem.',
     name: 'Nome',
     namePlaceholder: 'Seu nome',
     email: 'Email',
@@ -41,7 +41,7 @@ const TEXTS: { pt: ContactTexts; en: ContactTexts } = {
   },
   en: {
     title: 'Contact',
-    subtitle: 'Have a project in mind? Let\'s talk.',
+    subtitle: 'Let\'s talk! Feel free to send me a message.',
     name: 'Name',
     namePlaceholder: 'Your name',
     email: 'Email',

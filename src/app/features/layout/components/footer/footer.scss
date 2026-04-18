@@ -23,8 +23,16 @@
     font-size: 1.3rem;
     font-weight: 700;
 
-    .bracket {
-      color: var(--accent-primary);
+    .brand-logo {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(0.7);
+      transition: filter var(--transition-fast);
+
+      &:hover {
+        filter: grayscale(0%) opacity(1);
+      }
     }
   }
 
